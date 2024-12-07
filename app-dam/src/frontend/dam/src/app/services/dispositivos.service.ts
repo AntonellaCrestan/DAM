@@ -6,15 +6,15 @@ import { Dispositivo } from '../interfaces/dispositivo';
 })
 export class DispositivosService {
 
-  getDispositivos (): Dispositivo[] {
+  getDispositivos (): Dispositivo [] {
     return [
       {
         id: 1,
-        area: 'Patio',
+        area:'Patio',
         description: 'Sensor 1 del patio'
       },
       {
-        id: 2,
+        id:2,
         area: 'Patio',
         description: 'Sensor 2 del patio'
       }

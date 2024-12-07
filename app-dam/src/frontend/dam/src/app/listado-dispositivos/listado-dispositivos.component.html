@@ -1,0 +1,17 @@
+<p>
+  listado-dispositivos works!
+</p>
+
+<button (click)="serviceLogger.logInfo('hola')">Log info</button>
+<button (click)="getDispositivos()">Obtener dispositivos</button>
+<button (click)="toogle()">Mostrar texto </button>
+
+<div *ngIf="mostrar">texto a ocultar</div>
+
+<div *ngFor="let dispositivo of dispositivos; let i = index">
+  <app-dispositivo></app-dispositivo>
+</div>
+
+<div>{{dispositivos[0].id}}</div>
+<div>{{dispositivos[0].area}}</div>
+<div>{{dispositivos[0].description}}</div>
