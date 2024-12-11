@@ -1,17 +1,22 @@
 <p>
-  listado-dispositivos works!
+<ion-list>
+  <ion-item *ngFor="let dispositivo of dispositivos">
+    <ion-label>{{ dispositivo.dispositivoId }}</ion-label>
+  </ion-item>
+</ion-list>
 </p>
-
-<button (click)="serviceLogger.logInfo('hola')">Log info</button>
+--<!-- <button (click)="serviceLogger.logInfo('hola')">Log info</button>
 <button (click)="getDispositivos()">Obtener dispositivos</button>
 <button (click)="toogle()">Mostrar texto </button>
 
 <div *ngIf="mostrar">texto a ocultar</div>
 
 <div *ngFor="let dispositivo of dispositivos; let i = index">
-  <app-dispositivo></app-dispositivo>
+  {{ i }}
+  <app-dispositivo [dispositivo]="dispositivo"
+  (onChange)="manejador($event)"></app-dispositivo>
 </div>
 
 <div>{{dispositivos[0].id}}</div>
 <div>{{dispositivos[0].area}}</div>
-<div>{{dispositivos[0].description}}</div>
+<div>{{dispositivos[0].description}}</div>-->

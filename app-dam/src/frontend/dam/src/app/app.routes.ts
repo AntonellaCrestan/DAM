@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { ListadoDispositivosComponent } from './listado-dispositivos/listado-dispositivos.component';
 
 export const routes: Routes = [
   {
@@ -14,4 +15,5 @@ export const routes: Routes = [
     path: 'dispositivo',
     loadComponent: () => import('./dispositivo/dispositivo.page').then( m => m.DispositivoPage)
   },
+  { path: 'listado-dispositivos', component: ListadoDispositivosComponent},
 ];

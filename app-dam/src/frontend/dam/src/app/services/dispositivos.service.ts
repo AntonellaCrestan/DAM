@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Dispositivo } from '../interfaces/dispositivo';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DispositivosService {
+export class DispositivoService {
 
-  getDispositivos (): Dispositivo [] {
-    return [
-      {
-        id: 1,
-        area:'Patio',
-        description: 'Sensor 1 del patio'
-      },
-      {
-        id:2,
-        area: 'Patio',
-        description: 'Sensor 2 del patio'
-      }
-    ]
+  constructor(private _http: HttpClient) { }
+
+//Formas de obtener los dispositivos que están en el backend:
+//Observable:
+//  getDispositivos () {
+//    return this._http.get('http://localhost:8000/dispositivo')
+//  }
+//}
+
+//Promesa:
+  getDispositivos () {
+    return firstValueFrom(this._http.get('http://localhost:8000/dispositivo'))
   }
-
-  constructor() { }
 }
+
+
+
