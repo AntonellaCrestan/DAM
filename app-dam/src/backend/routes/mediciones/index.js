@@ -30,4 +30,6 @@ routerMediciones.get('/:dispositivoId', function(req, res) {
     });
 });
 
+
+
 module.exports = routerMediciones

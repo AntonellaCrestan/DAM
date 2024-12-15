@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { DispositivoService } from '../services/dispositivos.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ValvulaService } from '../services/valvula.service';
 
 @Component({
   selector: 'app-dispositivo',
@@ -16,7 +17,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     IonCard,
-   // IonButton,
+    IonButton,
     IonCardHeader,
     IonCardContent,
     IonCardTitle,
@@ -30,16 +31,18 @@ export class DispositivoPage implements OnInit {
   //observable$: Observable<any>
   dispositivo: any = {}; //Un solo dispositivo
   humedadaleatoria:number;
+  valveState=false; //Inicializar el estado cerrado
   //subscription: Subscription
 
   //mouseMove$ = fromEvent(document,'mousemove')
 
-  constructor(private route: ActivatedRoute, private _dispositivoService: DispositivoService) {
+  constructor(private route: ActivatedRoute, private _dispositivoService: DispositivoService,
+    private valvulaService: ValvulaService ) {
   //  this.observable$ = interval(1000)
     this.humedadaleatoria = Math.floor(Math.random()*101);
   }
 
-
+//Seccion: Configuración de la página donde se visualiza cada dispositivo en una tarjeta
       ngOnInit() {
         // Obtener el dispositivoId desde los parámetros de la ruta
         const dispositivoId = Number(this.route.snapshot.paramMap.get('dispositivoId'));
@@ -55,7 +58,21 @@ export class DispositivoPage implements OnInit {
             console.error('Error al obtener el dispositivo:', error);
           });
       }
-      
+    
+//Seccion para darle la función al segundo botón encargado de abrir o cerrar la válvula
+        async toggleValve() {
+          try {
+            const newApertura = this.valveState ? 0 : 1; // Si valveState es true, asigna 0, sino, 1
+            const response = await this.valvulaService.registrarAccion(
+              this.dispositivo.electrovalvulaId,
+              newApertura
+            );
+            this.valveState = !this.valveState; // Invertimos el estado para el siguiente clic
+            console.log('Acción registrada:', response);
+          } catch (error) {
+            console.error('Error al registrar la acción:', error);
+            // Mostrar un mensaje de error al usuario
+          }
+        }
 
-
-}
+    }

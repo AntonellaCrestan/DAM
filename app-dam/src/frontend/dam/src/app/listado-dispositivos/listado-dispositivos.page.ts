@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonTitle, IonToolbar, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';  // Solo importa desde standalone
 import { DispositivoService } from '../services/dispositivos.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { CambiarFondoColorDirective } from '../directives/cambiarfondocolor.directive';
 
 
 @Component({
@@ -21,6 +22,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
     IonItem,
 //    IonLabel,
     RouterModule,
+    CambiarFondoColorDirective
   ]
 })
 

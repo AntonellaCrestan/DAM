@@ -5,7 +5,7 @@
 
   <!-- Lista de dispositivos -->
   <ion-list *ngIf="dispositivos && dispositivos.length > 0">
-    <ion-item *ngFor="let dispositivo of dispositivos">
+    <ion-item *ngFor="let dispositivo of dispositivos" [appCambiarFondoColor]="'lightblue'">
       <a [routerLink]="['/dispositivo/', dispositivo.dispositivoId]" routerLinkActive="active" ariaCurrentWhenActive="page">
         {{ dispositivo.nombre }}- {{ dispositivo.ubicacion }}
       </a>

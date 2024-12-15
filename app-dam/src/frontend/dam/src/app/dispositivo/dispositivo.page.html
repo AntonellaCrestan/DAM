@@ -16,11 +16,15 @@
         Última medición de humedad: {{humedadaleatoria}}%
       </ion-card-content>
 
-      <ion-button [routerLink]="['/listado-mediciones/', dispositivo.dispositivoId]" expand="block">
+      <ion-button [routerLink]="['/listado-mediciones/', dispositivo.dispositivoId]">
         Ver Mediciones
       </ion-button>
-      <!-- <ion-button fill="clear">Action 1</ion-button>
-      <ion-button fill="clear">Action 2</ion-button> -->
+      
+      <ion-button (click)="toggleValve()">
+        <span *ngIf="valveState">Abrir válvula</span>
+        <span *ngIf="!valveState">Cerrar válvula</span>
+      </ion-button>
+
     </ion-card>
   </ng-container>
 </ion-content>
