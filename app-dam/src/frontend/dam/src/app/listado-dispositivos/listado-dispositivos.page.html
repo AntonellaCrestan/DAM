@@ -2,15 +2,14 @@
   <ion-toolbar>
     <ion-title>Listado de Dispositivos</ion-title>
   </ion-toolbar>
-</ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-list *ngFor="let dispositivo of dispositivos">
-    <ion-item >
-      <ion-label>{{ dispositivo.dispositivoId }}</ion-label>
+  <!-- Lista de dispositivos -->
+  <ion-list *ngIf="dispositivos && dispositivos.length > 0">
+    <ion-item *ngFor="let dispositivo of dispositivos">
+      <a [routerLink]="['/dispositivo/', dispositivo.dispositivoId]" routerLinkActive="active" ariaCurrentWhenActive="page">
+        {{ dispositivo.nombre }}- {{ dispositivo.ubicacion }}
+      </a>
     </ion-item>
   </ion-list>
-  <div *ngIf="dispositivos.length === 0">
-    <p>No hay dispositivos disponibles.</p>
-  </div>
+ 
 </ion-content>

@@ -8,7 +8,7 @@ var express = require('express');
 var app = express();
 var pool = require('./mysql-connector');
 const routerDispositivo = require('./routes/dispositivo')
-
+const routerMediciones = require('./routes/mediciones')
 var corsOptions = {
     origin: '*',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -22,6 +22,8 @@ app.use(express.static('/home/node/app/static/'));
 app.use(cors(corsOptions));
 
 app.use('/dispositivo', routerDispositivo)
+
+app.use('/mediciones',routerMediciones)
 
 //Prueba clase 5- Middleware
 

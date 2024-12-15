@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonTitle, IonToolbar, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';  // Solo importa desde standalone
 import { DispositivoService } from '../services/dispositivos.service';
-import { interval, Observable } from 'rxjs';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -19,31 +19,31 @@ import { interval, Observable } from 'rxjs';
     FormsModule,
     IonList,
     IonItem,
-    IonLabel
+//    IonLabel,
+    RouterModule,
   ]
 })
 
 export class ListadoDispositivosPage implements OnInit {
 
-  observable$: Observable<any>
-  dispositivos:any=[]
+  dispositivos: any=[] =[]; //Array de dispositivos
 
-  constructor(private _dispositivoService: DispositivoService)
-    {
-      this.observable$=interval(1000)
-    }
-  
+  constructor(private route: ActivatedRoute,private _dispositivoService: DispositivoService) {}
+ 
+  @Input()
+  dispositivoId='';
 
-    ngOnInit() {
-      this._dispositivoService.getDispositivos()
-        .then((data) => {
-          console.log('Datos recibidos desde el backend:', data);
-          this.dispositivos = data;
-        })
-        .catch((error) => {
-          console.error('Error al obtener dispositivos:', error);
-        });
-  
-      console.log('Estado inicial de dispositivos:', this.dispositivos);
-    }
+ ngOnInit() {
+   this._dispositivoService.getDispositivos()
+      .then((data: any) => {
+        console.log('Datos recibidos desde el backend:', data);
+        this.dispositivos = data; // Asignación de los dispositivos al array
+      })
+      .catch((error) => {
+        console.error('Error al obtener dispositivos:', error);
+      });
+
+    console.log('Estado inicial de dispositivos:', this.dispositivos);
   }
+  
+}

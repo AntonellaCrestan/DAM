@@ -13,6 +13,11 @@ export class DispositivoService {
   getDispositivos () {
     return firstValueFrom(this._http.get('http://localhost:8000/dispositivo'))
   }
+
+  getDispositivoPorNombre(dispositivoId:number) {
+    const url = `http://localhost:8000/dispositivo/${dispositivoId}`;
+    return firstValueFrom(this._http.get(url));
+  }
 }
 
 
