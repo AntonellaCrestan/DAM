@@ -30,6 +30,23 @@ routerMediciones.get('/:dispositivoId', function(req, res) {
     });
 });
 
+/* routerMediciones.post('/:dispositivoId', function(req, res) {
+    const { dispositivoId } = req.params;
+    const { valor } = humedadaleatoria;
+    const fecha = new Date(); // Fecha actual
 
+    // Insertar la medición en Tabla Mediciones
+    pool.query(
+        'INSERT INTO Mediciones (medicionId, fecha, valor, dispositivoId) VALUES (?, ?, ?, ?)',
+        [medicionId, fecha, valor, dispositivoId],
+        (err, result) => {
+            if (err) {
+                console.error('Error al registrar la acción:', err);
+                return res.status(500).send({ message: 'Error al registrar la medición de humedad' });
+            }
+            res.status(200).send({ message: 'Medición de humedad registrada correctamente', id: result.insertId });
+        }
+    );
+}); */
 
 module.exports = routerMediciones

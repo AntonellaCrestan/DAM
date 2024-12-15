@@ -5,6 +5,7 @@ import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, Ion
 import { DispositivoService } from '../services/dispositivos.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ValvulaService } from '../services/valvula.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dispositivo',
@@ -37,7 +38,7 @@ export class DispositivoPage implements OnInit {
   //mouseMove$ = fromEvent(document,'mousemove')
 
   constructor(private route: ActivatedRoute, private _dispositivoService: DispositivoService,
-    private valvulaService: ValvulaService ) {
+    private valvulaService: ValvulaService, private http: HttpClient ) {
   //  this.observable$ = interval(1000)
     this.humedadaleatoria = Math.floor(Math.random()*101);
   }
@@ -67,6 +68,7 @@ export class DispositivoPage implements OnInit {
               this.dispositivo.electrovalvulaId,
               newApertura
             );
+ 
             this.valveState = !this.valveState; // Invertimos el estado para el siguiente clic
             console.log('Acción registrada:', response);
           } catch (error) {

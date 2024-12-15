@@ -5,6 +5,7 @@ import { IonContent, IonTitle, IonToolbar, IonList, IonItem, IonLabel } from '@i
 import { DispositivoService } from '../services/dispositivos.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CambiarFondoColorDirective } from '../directives/cambiarfondocolor.directive';
+import { CambiarAmayusculaPipe } from '../pipes/cambiar-amayuscula.pipe';
 
 
 @Component({
@@ -22,7 +23,8 @@ import { CambiarFondoColorDirective } from '../directives/cambiarfondocolor.dire
     IonItem,
 //    IonLabel,
     RouterModule,
-    CambiarFondoColorDirective
+    CambiarFondoColorDirective, 
+    CambiarAmayusculaPipe,
   ]
 })
 

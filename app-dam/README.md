@@ -1,7 +1,8 @@
 Web App Full Stack Base - Ionic frontend
 ========================================
+El presente proyecto es el trabajo final de la materia Desarrollo de Aplicaciones Multiplataforma. 
 
-Proyecto basado en [Web App Full Stack Base](https://github.com/gotoiot/app-fullstack-base).
+El proyecto está basado en [Web App Full Stack Base](https://github.com/gotoiot/app-fullstack-base).
 
 En esta extensión del proyecto se utiliza el framework ionic para realizar el frontend.
 
@@ -28,6 +29,17 @@ Para acceder al cliente web ingresa a a la URL [http://localhost:8100/](http://l
 Si pudiste acceder al cliente web y al administrador significa que la aplicación se encuentra corriendo bien. 
 
 > Si te aparece un error la primera vez que corres la app, deteńe el proceso y volvé a iniciarla. Esto es debido a que el backend espera que la DB esté creada al iniciar, y en la primera ejecución puede no alcanzar a crearse. A partir de la segunda vez el problema queda solucionado.
+
+### Navegar por la aplicación
+
+Al ingresar a localhost:8100 usted será redirigido a localhost:8100/listado-dispositivo. En esta página podrá visualizar el listado de dispositivos del proyecto con su correspondiente ubicación. 
+
+Para conocer el detalle de cada dispositivo usted puede hacer click en el nombre del dispositivo y será redirigido a una página donde se exponga el detalle del mismo. 
+
+La tarjeta del sensor mostrará su ubicación, número de electroválvula y cuál es la última medición de humedad. Además dispondrá de 2 botones que tienen las siguientes funciones:
+
+- "Ver Mediciones": lo redirigirá al historial de mediciones de este sensor.
+- "Abrir/Cerrar Válvula": le permite abrir o cerrar la válvula de riego del sensor en el que está ubicado. Si el botón dice "abrir" es porque el estado actual es cerrado, y si dice "cerrar" es porque el estado actual es abierto. 
 
 ## Licencia 📄
 
